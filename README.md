@@ -4,10 +4,6 @@
 
 A comprehensive backend system for managing membership subscriptions with tiered benefits for FirstClub platform. This system demonstrates enterprise-grade architecture with full production readiness including BCrypt security, async processing, and comprehensive testing.
 
-## Production Ready Status: APPROVED
-
-**After comprehensive evaluation, this system is 100% production-ready with all requirements implemented and tested.**
-
 ---
 
 ## Features & Capabilities
@@ -24,7 +20,7 @@ A comprehensive backend system for managing membership subscriptions with tiered
 |------|----------|----------|--------------|
 | **Silver** | 5% | Basic benefits + Free delivery | No requirements |
 | **Gold** | 10% | Priority support + Exclusive deals + Free delivery | 5+ orders, Rs. 200+ monthly |
-| **Platinum** | 20% | All benefits + Early access + VIP support | 10+ orders, $500+ monthly |
+| **Platinum** | 20% | All benefits + Early access + VIP support | 10+ orders, Rs. 500+ monthly |
 
 ### Core System Capabilities
 - **Secure User Management**: BCrypt password encryption (strength 12)
@@ -513,7 +509,7 @@ membership.benefits.cache.ttl=3600
 ####  Gold Tier (Enhanced Benefits)
 - **Requirements**: 
   - Complete at least **5 orders**
-  - Spend minimum **$200 per month**
+  - Spend minimum **Rs. 200 per month**
 - **Benefits**:
   - **10% discount** on all items
   - FREE priority delivery
@@ -526,7 +522,7 @@ membership.benefits.cache.ttl=3600
 ####  Platinum Tier (Premium Experience)
 - **Requirements**:
   - Complete at least **10 orders**
-  - Spend minimum **$500 per month**
+  - Spend minimum **Rs. 500 per month**
 - **Benefits**:
   - **20% discount** on all items
   - FREE same-day delivery
