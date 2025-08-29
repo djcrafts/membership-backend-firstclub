@@ -15,15 +15,15 @@ A comprehensive backend system for managing membership subscriptions with tiered
 ### Membership Plans
 | Plan | Duration | Price | Best For |
 |------|----------|-------|----------|
-| **Monthly** | 1 month | $99.99 | Trying out the service |
-| **Quarterly** | 3 months | $279.99 | Regular users |
-| **Yearly** | 12 months | $999.99 | Committed members (Best Value!) |
+| **Monthly** | 1 month | Rs. 99.99 | Trying out the service |
+| **Quarterly** | 3 months | Rs. 279.99 | Regular users |
+| **Yearly** | 12 months | Rs. 999.99 | Committed members (Best Value!) |
 
 ### Membership Tiers
 | Tier | Discount | Benefits | Requirements |
 |------|----------|----------|--------------|
 | **Silver** | 5% | Basic benefits + Free delivery | No requirements |
-| **Gold** | 10% | Priority support + Exclusive deals + Free delivery | 5+ orders, $200+ monthly |
+| **Gold** | 10% | Priority support + Exclusive deals + Free delivery | 5+ orders, Rs. 200+ monthly |
 | **Platinum** | 20% | All benefits + Early access + VIP support | 10+ orders, $500+ monthly |
 
 ### Core System Capabilities
@@ -687,72 +687,6 @@ SELECT * FROM USER_SUBSCRIPTIONS;
 SELECT * FROM USER_ACTIVITIES;
 ```
 
-###  Getting Help
-
-- ** Technical Issues**: Create an issue in the repository with full error logs
-- ** API Questions**: Check the API documentation section above
-- ** Bug Reports**: Include steps to reproduce, expected vs actual behavior
-- ** Feature Requests**: Describe the use case and business value
-- ** Documentation**: This README contains comprehensive information
-
----
-
-##  Production Deployment
-
-###  Pre-deployment Checklist
-- [ ] **Database Migration**: Replace H2 with PostgreSQL/MySQL
-- [ ] **Security Review**: Enable HTTPS and authentication
-- [ ] **Environment Variables**: Set all required production configurations
-- [ ] **Monitoring Setup**: Configure logging, metrics, and alerting
-- [ ] **Backup Strategy**: Setup automated database backups
-- [ ] **Load Testing**: Verify performance under expected load
-- [ ] **SSL Certificates**: Configure HTTPS with valid certificates
-- [ ] **Firewall Rules**: Secure network access to database and services
-
-###  Docker Deployment
-```dockerfile
-FROM openjdk:17-jdk-slim
-
-# Set working directory
-WORKDIR /app
-
-# Copy the jar file
-COPY target/membership-backend-1.0.0.jar app.jar
-
-# Expose the port
-EXPOSE 8081
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=60s \
-  CMD curl -f http://localhost:8081/api/v1/actuator/health || exit 1
-
-# Run the application
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-###  Environment Variables for Production
-```bash
-# Database Configuration
-export DB_HOST=your-db-host
-export DB_PORT=5432
-export DB_NAME=membership_prod
-export DB_USERNAME=your_db_user
-export DB_PASSWORD=your_secure_password
-
-# Application Configuration
-export SPRING_PROFILES_ACTIVE=production
-export SERVER_PORT=8081
-export JAVA_OPTS="-Xmx2048m -Xms1024m"
-
-# Security Configuration
-export JWT_SECRET=your-super-secure-jwt-secret
-export ENCRYPTION_KEY=your-encryption-key
-
-# Monitoring & Logging
-export LOG_LEVEL=INFO
-export METRICS_ENABLED=true
-```
-
 ###  Production Monitoring
 
 #### Health Checks
@@ -766,106 +700,3 @@ export METRICS_ENABLED=true
 - **Log Levels**: INFO for production, DEBUG for troubleshooting
 - **Log Rotation**: Daily rotation with 30-day retention
 - **Error Alerting**: Real-time alerts for exceptions and errors
-
-#### Performance Metrics
-- **Response Times**: Track API endpoint performance
-- **Throughput**: Monitor requests per second
-- **Database Performance**: Query execution times
-- **Thread Pool Utilization**: Monitor async operation efficiency
-
----
-
-##  Production Readiness Assessment
-
-###  **FINAL VERDICT: 100% PRODUCTION READY**
-
-After comprehensive evaluation, the FirstClub Membership Backend has successfully passed all production readiness criteria:
-
-####  **Code Quality Assessment**
--  **Zero TODO Comments**: All functionality fully implemented
--  **Clean Architecture**: Repository, Service, Controller layers properly separated
--  **Complete Documentation**: Comprehensive inline documentation and JavaDoc
--  **Custom Error Handling**: Professional exception classes with global handler
--  **Production Security**: BCrypt password encryption with strength 12
--  **Thread Safety**: Async operations with proper thread pools
--  **Input Validation**: Comprehensive validation and business rule enforcement
-
-####  **Testing Coverage Results**
--  **All APIs Tested**: 100% success rate across 13+ endpoints
--  **End-to-End Workflows**: Complete user lifecycles validated
--  **Security Testing**: BCrypt encryption and role-based access verified
--  **Error Scenarios**: Edge cases and invalid inputs properly handled
--  **Performance Testing**: Response times under 100ms
--  **Concurrency Testing**: Thread-safe operations confirmed
-
-####  **Deployment Readiness**
--  **Database Schema**: Production-ready with proper constraints
--  **Configuration Management**: Environment-specific settings
--  **Security Implementation**: Enterprise-grade password security
--  **Monitoring Setup**: Health checks and metrics endpoints
--  **Documentation Complete**: User guide and technical documentation
--  **Legal Compliance**: MIT License included
-
-####  **System Metrics**
-- **API Performance**: < 100ms response times
-- **Reliability**: 100% success rate in comprehensive testing
-- **Security Score**: Production-grade BCrypt implementation
-- **Architecture Score**: Clean separation of concerns
-- **Test Coverage**: All major code paths validated
-
-###  **Zero Critical Issues Found**
--  No security vulnerabilities
--  No performance bottlenecks  
--  No missing documentation
--  No untested code paths
--  No architectural concerns
--  No licensing issues
-
-###  **DEPLOYMENT APPROVED**
-
-The system is ready for:
-- ** Immediate Production Deployment**
-- ** End-user Adoption** with comprehensive documentation
-- ** Scale-up Operations** with existing architecture  
-- ** Continuous Development** with solid foundation
-
----
-
-##  License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-##  Team & Support
-
-### Development Team
-- **Backend Engineering**: FirstClub Development Team
-- **Architecture**: Senior Software Architects  
-- **Quality Assurance**: Testing and Validation Engineers
-- **DevOps**: Infrastructure and Deployment Team
-
-### Support Channels
-- ** Technical Issues**: Create an issue in the repository
-- ** General Questions**: Contact the development team
-- ** Documentation**: This comprehensive README
-- ** API Reference**: Complete endpoint documentation above
-
-### Contributing
-We welcome contributions! Please follow these guidelines:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-** CERTIFICATION: This FirstClub Membership Backend is production-ready and approved for immediate deployment.**
-
-> **Built with  by the FirstClub Development Team**  
-> **Reviewed by**: Senior Code Evaluator  
-> **Status**:  PRODUCTION APPROVED  
-> **Date**: August 29, 2025
-
----
-
-*For questions, support, or contributions, please reach out to the development team or create an issue in the repository.*
